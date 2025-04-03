@@ -66,8 +66,6 @@ router.get("/:id", accessProtected, async (req, res) => {
       }
     });
 
-
-
 // 🔹 Update order status (admin)
 router.put("/:id", accessProtected, async (req, res) => {
   try {
