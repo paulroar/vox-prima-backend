@@ -25,7 +25,6 @@ router.get("/:id", async (req, res) => {
       }
     });
 
-
 // 🔹 Create a new product (Admin only)
 router.post("/", accessProtected,  async (req, res) => {
     const { name, description, price, image, category, stock } = req.body;
