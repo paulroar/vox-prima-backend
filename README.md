@@ -73,10 +73,6 @@ node seed/productsSeed.js
 Deployed via **Fly.io**:
 👉 https://vox-prima-backend.fly.dev/api/products
 
-## 📸 Screenshots
-
-Optionally include API testing examples or Postman screenshots.
-
 ## 🙌 Credits
 
 Created by **Paulo Prado** as part of Ironhack’s Final Project.
