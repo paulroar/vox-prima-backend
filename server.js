@@ -6,8 +6,14 @@ require("dotenv").config();
 const app = express();
 connectDB();
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: 'https://voxprima.netlify.app',
+  credentials: true,
+}));
 app.use('/images', express.static('public/images'));
+
+app.use(cors({ origin: 'https://voxprima.netlify.app', credentials: true }));
+app.use(express.json());
 
 // 📌 Importing and using routes
 app.use("/api/users", require("./routes/userRoutes"));
