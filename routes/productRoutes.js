@@ -13,6 +13,19 @@ router.get("/", async (req, res) => {
     }
 });
 
+// 🔹 Get 8 random products
+router.get("/random/all", async (req, res) => {
+    try {
+      const count = await Product.countDocuments();
+      const random = Math.max(0, Math.floor(Math.random() * (count - 8)));
+  
+      const products = await Product.find().skip(random).limit(8);
+      res.status(200).json(products);
+    } catch (err) {
+      res.status(500).json({ message: "Server error" });
+    }
+  });
+
 // 🔹 Get a single product
 
 router.get("/:id", async (req, res) => {

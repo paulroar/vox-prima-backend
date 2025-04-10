@@ -196,6 +196,15 @@ const products = [
     "category": "T-Shirts",
     "brand": "VÖX PRIMA",
     "countInStock": 10
+  },
+  {
+    "name": "Mecha Skull Symphony",
+    "description": "Perfect for those who embrace attitude, mystery, and a touch of rebellious art.",
+    "price": 25.8,
+    "image": "https://res.cloudinary.com/dszajuzln/image/upload/v1744115436/zwreqaka75jhpml8pp5m.jpg",
+    "category": "T-Shirts",
+    "brand": "VÖX PRIMA",
+    "countInStock": 10
   }
 
 ];

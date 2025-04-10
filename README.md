@@ -1,29 +1,25 @@
-
 # VÖX PRIMA – Backend
 
 This is the backend for **VÖX PRIMA**, an artistic t-shirt e-commerce application. It provides all API functionalities including authentication, product catalog management, and order creation.
 
 ## 🚀 Features
-
 - User registration and login with JWT authentication.
-- CRUD operations for **Products** and **Orders**.
+- CRUD operations for Products and Orders.
 - Middleware for route protection.
 - Secure storage of user credentials with bcrypt.
 - Connected to MongoDB Atlas.
 - Cloudinary image integration via image URLs.
 
 ## 🧱 Technologies
-
-- **Node.js**
-- **Express.js**
-- **MongoDB + Mongoose**
-- **JWT**
-- **bcryptjs**
-- **dotenv**
-- **CORS**
+- Node.js
+- Express.js
+- MongoDB + Mongoose
+- JWT
+- bcryptjs
+- dotenv
+- CORS
 
 ## 🔐 Environment Variables
-
 Create a `.env` file with:
 
 ```
@@ -33,7 +29,6 @@ JWT_SECRET=your_jwt_secret
 ```
 
 ## 📁 Folder Structure
-
 ```
 /
 ├── config/              # DB connection
@@ -47,36 +42,19 @@ JWT_SECRET=your_jwt_secret
 ```
 
 ## 🧪 Run Locally
-
-1. Clone the repo:
 ```bash
 git clone https://github.com/youruser/vox-prima-backend.git
-```
-
-2. Install dependencies:
-```bash
+cd vox-prima-backend
 npm install
-```
-
-3. Start the server:
-```bash
 npm start
-```
-
-4. Seed products (if needed):
-```bash
-node seed/productsSeed.js
+node seed/productsSeed.js   # optional
 ```
 
 ## 🔗 Deployment
-
-Deployed via **Fly.io**:
-👉 https://vox-prima-backend.fly.dev/api/products
+Deployed via Fly.io: 👉 https://vox-prima-backend.fly.dev/api/products
 
 ## 🙌 Credits
-
-Created by **Paulo Prado** as part of Ironhack’s Final Project.
+Created by Paulo Prado as part of Ironhack’s Final Project.
 
 ## 📃 License
-
 MIT
