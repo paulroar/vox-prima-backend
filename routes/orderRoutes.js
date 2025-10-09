@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Order = require("../models/Order");
 const accessProtected = require("../middleware/authMiddleware");
+const adminOnly = require("../middleware/adminMiddleware");
 
 // 🔹 Create new order (at checkout)
 router.post("/", accessProtected, async (req, res) => {
@@ -26,7 +27,7 @@ router.post("/", accessProtected, async (req, res) => {
 });
 
 // 🔹 Get all orders (admin only)
-router.get("/", accessProtected, async (req, res) => {
+router.get("/", accessProtected, adminOnly, async (req, res) => {
   try {
     const orders = await Order.find().populate("user", "name email");
     res.json(orders);
@@ -45,7 +46,7 @@ router.get("/my-orders", accessProtected, async (req, res) => {
   }
 });
 
-// 🔹 Get a single order (admin only)
+// 🔹 Get a single order (admin or user)
 
 router.get("/:id", accessProtected, async (req, res) => {
     try {
@@ -55,8 +56,8 @@ router.get("/:id", accessProtected, async (req, res) => {
           return res.status(404).json({ message: "Order not found" });
         }
     
-        // Checks if the request is from the logged in user
-        if (order.user.toString() !== req.user._id.toString()) {
+        // Checks if the request is from the logged in user or an admin
+        if (order.user.toString() !== req.user._id.toString() && !req.user.isAdmin) {
           return res.status(403).json({ message: "Unauthorized access" });
         }
     
@@ -67,7 +68,7 @@ router.get("/:id", accessProtected, async (req, res) => {
     });
 
 // 🔹 Update order status (admin)
-router.put("/:id", accessProtected, async (req, res) => {
+router.put("/:id", accessProtected, adminOnly, async (req, res) => {
   try {
     const updatedOrder = await Order.findByIdAndUpdate(req.params.id, req.body, { new: true });
     res.json(updatedOrder);
